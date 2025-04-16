@@ -1,11 +1,11 @@
 :host ::ng-deep .mat-mdc-tab .mdc-tab__text-label {
-    color: #972f74 !important;        // your magenta
+    color: #972f74 !important;       
     font-weight: 600 !important;
     opacity: 1 !important;
   }
   
   :host ::ng-deep .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
-    color: #880e4f !important;        // darker magenta for active tab
+    color: #880e4f !important;    
   }
   
   :host ::ng-deep .mat-mdc-tab:hover .mdc-tab__text-label {

@@ -19,14 +19,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
-  background-image: url('/assets/your-texture.png'); // Replace with your actual texture
+  background-image: url('/assets/your-texture.png');
   background-repeat: repeat;
   background-size: 100px 100px;
   animation: textureMove 20s linear infinite;
   overflow: hidden;
 
-  // Overlay for better contrast
+ 
   &::before {
     content: '';
     position: absolute;

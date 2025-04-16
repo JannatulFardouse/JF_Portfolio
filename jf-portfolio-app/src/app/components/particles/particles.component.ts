@@ -25,7 +25,7 @@ export class ParticlesComponent implements OnInit {
           },
           background: {
             color: {
-              value: '#ffffff' // Light background, you can change to '#000' for dark
+              value: '#ffffff'
             }
           },
           particles: {
@@ -33,11 +33,11 @@ export class ParticlesComponent implements OnInit {
               value: 100,
               density: {
                 enable: true,
-                value_area: 800 // ✅ Correct usage
-              } as any // optional workaround
+                value_area: 800
+              } as any 
             },
             color: {
-              value: '#00b894'
+              value: '#b80099'
             },
             shape: {
               type: 'circle'
@@ -46,7 +46,7 @@ export class ParticlesComponent implements OnInit {
               value: 0.5
             },
             size: {
-              value: { min: 1, max: 3 } // ✅ instead of "random"
+              value: { min: 1, max: 7 } 
             },
             move: {
               enable: true,
@@ -58,7 +58,7 @@ export class ParticlesComponent implements OnInit {
             },
             links: {
               enable: true,
-              color: '#00b894',
+              color: '#b80099',
               distance: 150,
               opacity: 0.5
             }
