@@ -1,9 +1,0 @@
-{
-  "routes": [
-    "/",
-    "/contact",
-    "/particles",
-    "/projects",
-    "/three-scene"
-  ]
-}
