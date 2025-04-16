@@ -1,50 +1,98 @@
-<mat-tab-group animationDuration="500ms" class="custom-tabs">
-    <mat-tab label="Skills">
-      <div [@fadeInOut]>
-        <div class="skill-badges">
-          <span *ngFor="let skill of profile.skills" class="badge">{{ skill }}</span>
-        </div>
-      </div>
-    </mat-tab>
+<ng-container *ngIf="!isMobile; else mobileView">
+    <mat-tab-group
+      animationDuration="500ms"
+      dynamicHeight
+      mat-align-tabs="start"
+      class="custom-tabs"
+    >
+      <mat-tab label="Skills">
+        <ng-container *ngTemplateOutlet="skillsTab"></ng-container>
+      </mat-tab>
+      <mat-tab label="Experience">
+        <ng-container *ngTemplateOutlet="experienceTab"></ng-container>
+      </mat-tab>
+      <mat-tab label="Education">
+        <ng-container *ngTemplateOutlet="educationTab"></ng-container>
+      </mat-tab>
+      <mat-tab label="Certifications">
+        <ng-container *ngTemplateOutlet="certificationsTab"></ng-container>
+      </mat-tab>
+      <mat-tab label="Languages & Soft Skills">
+        <ng-container *ngTemplateOutlet="languagesTab"></ng-container>
+      </mat-tab>
+    </mat-tab-group>
+  </ng-container>
   
-    <mat-tab label="Experience">
-      <div [@fadeInOut]>
-        <div *ngFor="let exp of profile.experiences" class="experience-card">
-          <h3>{{ exp.position }}</h3>
-          <h4>{{ exp.company }}</h4>
-          <p><em>{{ exp.period }}</em></p>
-          <ul>
-            <li *ngFor="let res of exp.responsibilities">{{ res }}</li>
-          </ul>
-        </div>
+  <ng-template #mobileView>
+    <div class="mobile-paginator">
+      <div class="pagination-header">
+        <h3>{{ tabLabels[selectedTabIndex] }}</h3>
       </div>
-    </mat-tab>
   
-    <mat-tab label="Education">
       <div [@fadeInOut]>
-        <div *ngFor="let edu of profile.education" class="edu-block">
-          <h4>{{ edu.degree }}</h4>
-          <p>{{ edu.university }}</p>
-          <small *ngIf="edu.status">{{ edu.status }}</small>
-          <small *ngIf="edu.grade">{{ edu.grade }}</small>
-        </div>
+        <ng-container [ngSwitch]="tabLabels[selectedTabIndex]">
+          <ng-container *ngSwitchCase="'Skills'">
+            <ng-container *ngTemplateOutlet="skillsTab"></ng-container>
+          </ng-container>
+          <ng-container *ngSwitchCase="'Experience'">
+            <ng-container *ngTemplateOutlet="experienceTab"></ng-container>
+          </ng-container>
+          <ng-container *ngSwitchCase="'Education'">
+            <ng-container *ngTemplateOutlet="educationTab"></ng-container>
+          </ng-container>
+          <ng-container *ngSwitchCase="'Certifications'">
+            <ng-container *ngTemplateOutlet="certificationsTab"></ng-container>
+          </ng-container>
+          <ng-container *ngSwitchCase="'Languages & Soft Skills'">
+            <ng-container *ngTemplateOutlet="languagesTab"></ng-container>
+          </ng-container>
+        </ng-container>
       </div>
-    </mat-tab>
   
-    <mat-tab label="Certifications">
-      <div [@fadeInOut]>
-        <ul class="cert-list">
-          <li *ngFor="let cert of profile.certifications">
-            {{ cert.title }} – <strong>{{ cert.source }}</strong>
-          </li>
-        </ul>
+      <div class="pagination-controls">
+        <button (click)="prevTab()" [disabled]="selectedTabIndex === 0">Previous</button>
+        <button (click)="nextTab()" [disabled]="selectedTabIndex === tabLabels.length - 1">Next</button>
       </div>
-    </mat-tab>
+    </div>
+  </ng-template>
   
-    <mat-tab label="Languages & Soft Skills">
-      <div [@fadeInOut]>
-        <p><strong>Languages:</strong> {{ profile.languages.join(', ') }}</p>
-        <p><strong>Soft Skills:</strong> {{ profile.softSkills.join(', ') }}</p>
-      </div>
-    </mat-tab>
-  </mat-tab-group>
+  <!-- Shared content templates -->
+  <ng-template #skillsTab>
+    <div class="skill-badges">
+      <span *ngFor="let skill of profile.skills" class="badge">{{ skill }}</span>
+    </div>
+  </ng-template>
+  
+  <ng-template #experienceTab>
+    <div *ngFor="let exp of profile.experiences" class="experience-card">
+      <h3>{{ exp.position }}</h3>
+      <h4>{{ exp.company }}</h4>
+      <p><em>{{ exp.period }}</em></p>
+      <ul>
+        <li *ngFor="let res of exp.responsibilities">{{ res }}</li>
+      </ul>
+    </div>
+  </ng-template>
+  
+  <ng-template #educationTab>
+    <div *ngFor="let edu of profile.education" class="edu-block">
+      <h4>{{ edu.degree }}</h4>
+      <p>{{ edu.university }}</p>
+      <small *ngIf="edu.status">{{ edu.status }}</small>
+      <small *ngIf="edu.grade">{{ edu.grade }}</small>
+    </div>
+  </ng-template>
+  
+  <ng-template #certificationsTab>
+    <ul class="cert-list">
+      <li *ngFor="let cert of profile.certifications">
+        {{ cert.title }} – <strong>{{ cert.source }}</strong>
+      </li>
+    </ul>
+  </ng-template>
+  
+  <ng-template #languagesTab>
+    <p><strong>Languages:</strong> {{ profile.languages.join(', ') }}</p>
+    <p><strong>Soft Skills:</strong> {{ profile.softSkills.join(', ') }}</p>
+  </ng-template>
+  
