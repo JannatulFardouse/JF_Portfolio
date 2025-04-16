@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/jf-portfolio-app",
+            "outputPath": "dist/JF_Portfolio",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "baseHref": "/JF_Portfolio/",
