@@ -20,6 +20,7 @@
             "outputPath": "dist/jf-portfolio-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "baseHref": "/JF_Portfolio/",
             "polyfills": [
               "zone.js"
             ],
