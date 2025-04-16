@@ -17,10 +17,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/JF_Portfolio",
+            "outputPath": "dist/JF_Portfolio/JfPortfolioApp",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "baseHref": "/JF_Portfolio/",
+            "baseHref": "/JF_Portfolio/jf-portfolio-app",
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
