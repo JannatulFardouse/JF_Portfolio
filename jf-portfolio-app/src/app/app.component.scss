@@ -22,7 +22,7 @@ main {
   justify-content: center;
   gap: 2rem;
   padding: 1rem;
-  background-color: #222;
+  background-color: #b80099;
   
   a {
     color: #fff;
@@ -30,7 +30,7 @@ main {
     font-weight: bold;
 
     &.active {
-      border-bottom: 2px solid #00ffd0;
+      border-bottom: 2px solid #fff;
     }
   }
 }

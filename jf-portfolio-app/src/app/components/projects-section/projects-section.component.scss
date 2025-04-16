@@ -1,0 +1,12 @@
+.project-card {
+    padding: 1rem;
+    background: #f5f5f5;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+  }
+  .project-card:hover {
+    transform: scale(1.02);
+  }
+  

@@ -1,0 +1,15 @@
+.skill-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .skill {
+    background-color: #e0f7fa;
+    color: #006064;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 500;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  }
+  

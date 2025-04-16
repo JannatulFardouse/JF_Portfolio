@@ -1,0 +1,47 @@
+:host ::ng-deep .mat-mdc-tab .mdc-tab__text-label {
+    color: #972f74 !important;        // your magenta
+    font-weight: 600 !important;
+    opacity: 1 !important;
+  }
+  
+  :host ::ng-deep .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+    color: #880e4f !important;        // darker magenta for active tab
+  }
+  
+  :host ::ng-deep .mat-mdc-tab:hover .mdc-tab__text-label {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+  
+  
+  .custom-tabs {
+    margin-top: 2rem;
+  
+    .badge {
+      background: #f3e5f5;
+      color: #6a1b9a;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      margin: 0.3rem;
+      display: inline-block;
+    }
+  
+    .experience-card,
+    .edu-block {
+      padding: 1rem;
+      border-left: 3px solid #ab47bc;
+      background: #fafafa;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+    }
+  
+    .cert-list {
+      list-style-type: none;
+      padding: 0;
+  
+      li {
+        padding: 0.5rem 0;
+      }
+    }
+  }
+  

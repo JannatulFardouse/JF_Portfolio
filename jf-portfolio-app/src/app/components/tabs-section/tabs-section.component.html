@@ -1,0 +1,50 @@
+<mat-tab-group animationDuration="500ms" class="custom-tabs">
+    <mat-tab label="Skills">
+      <div [@fadeInOut]>
+        <div class="skill-badges">
+          <span *ngFor="let skill of profile.skills" class="badge">{{ skill }}</span>
+        </div>
+      </div>
+    </mat-tab>
+  
+    <mat-tab label="Experience">
+      <div [@fadeInOut]>
+        <div *ngFor="let exp of profile.experiences" class="experience-card">
+          <h3>{{ exp.position }}</h3>
+          <h4>{{ exp.company }}</h4>
+          <p><em>{{ exp.period }}</em></p>
+          <ul>
+            <li *ngFor="let res of exp.responsibilities">{{ res }}</li>
+          </ul>
+        </div>
+      </div>
+    </mat-tab>
+  
+    <mat-tab label="Education">
+      <div [@fadeInOut]>
+        <div *ngFor="let edu of profile.education" class="edu-block">
+          <h4>{{ edu.degree }}</h4>
+          <p>{{ edu.university }}</p>
+          <small *ngIf="edu.status">{{ edu.status }}</small>
+          <small *ngIf="edu.grade">{{ edu.grade }}</small>
+        </div>
+      </div>
+    </mat-tab>
+  
+    <mat-tab label="Certifications">
+      <div [@fadeInOut]>
+        <ul class="cert-list">
+          <li *ngFor="let cert of profile.certifications">
+            {{ cert.title }} – <strong>{{ cert.source }}</strong>
+          </li>
+        </ul>
+      </div>
+    </mat-tab>
+  
+    <mat-tab label="Languages & Soft Skills">
+      <div [@fadeInOut]>
+        <p><strong>Languages:</strong> {{ profile.languages.join(', ') }}</p>
+        <p><strong>Soft Skills:</strong> {{ profile.softSkills.join(', ') }}</p>
+      </div>
+    </mat-tab>
+  </mat-tab-group>

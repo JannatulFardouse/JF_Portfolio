@@ -1,0 +1,13 @@
+<section id="projects">
+    <h2>Projects</h2>
+  
+    <div class="projects-list">
+      <div class="project-card" *ngFor="let project of projects">
+        <a [href]="project.url" target="_blank">{{ project.title }}</a>
+      </div>
+    </div>
+  
+    <!-- Debug line: remove later -->
+    
+  </section>
+  
