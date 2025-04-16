@@ -1,16 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router'; // 👈 Import this
-import AOS from 'aos';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { ThreeSceneComponent } from './components/three-scene/three-scene.component';
+import { ParticlesComponent } from './components/particles/particles.component';  // <-- Import the ParticlesComponent
+
 @Component({
   selector: 'app-root',
-  standalone: true, // make sure this line is present
-  imports: [RouterModule], // 👈 Add this
+  standalone: true,
+  imports: [RouterModule, ThreeSceneComponent, ParticlesComponent],  // <-- Add the ParticlesComponent here
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'JF_Portfolio';
-  ngOnInit(): void {
-    AOS.init(); // Initialize AOS
+  isBrowser: boolean;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
+
+  async ngOnInit(): Promise<void> {
+    if (this.isBrowser) {
+      const AOS = await import('aos');
+      AOS.init();
+    }
   }
 }

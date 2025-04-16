@@ -1,7 +1,123 @@
-.title {
-    text-align: center;
-    color: #00ffd0;
-    margin: 2rem 0;
-    font-size: 2rem;
+@keyframes textureMove {
+  0% {
+    background-position: 0 0;
   }
-  
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.home {
+  position: relative;
+  padding: 5rem 1rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  background-image: url('/assets/your-texture.png'); // Replace with your actual texture
+  background-repeat: repeat;
+  background-size: 100px 100px;
+  animation: textureMove 20s linear infinite;
+  overflow: hidden;
+
+  // Overlay for better contrast
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    //background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .intro {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    color: #fff;
+
+    .name {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #fff;
+
+      span {
+        color: #00b894;
+      }
+    }
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #fff;
+      margin-top: 0.5rem;
+    }
+
+    .summary {
+      font-size: 1.1rem;
+      color: #f0f0f0;
+      margin-top: 1rem;
+      line-height: 1.6;
+      max-width: 700px;
+      margin-inline: auto;
+    }
+
+    .buttons {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+
+      .btn,
+      .btn-outline {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      .btn {
+        background: #00b894;
+        color: #fff;
+
+        &:hover {
+          background: darken(#00b894, 10%);
+        }
+      }
+
+      .btn-outline {
+        border: 2px solid #00b894;
+        color: #00b894;
+
+        &:hover {
+          background: #00b894;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  app-three-scene {
+    width: 100%;
+    height: 400px;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+}
