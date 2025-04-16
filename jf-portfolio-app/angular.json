@@ -18,23 +18,22 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/JF_Portfolio",
-            "index": "jf-portfolio-app/src/index.html",
-            "browser": "jf-portfolio-app/src/main.ts",
+            "index": "src/index.html",
+            "browser": "src/main.ts",
             "baseHref": "/JF_Portfolio/",
-            "polyfills": [
-              "zone.js"
-            ],
-            "tsConfig": "jf-portfolio-app/tsconfig.app.json",
+            "polyfills": ["zone.js"],
+            "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "jf-portfolio-app/public"
+                "input": "public",
+                "output": "/"
               }
             ],
             "styles": [
               "@angular/material/prebuilt-themes/magenta-violet.css",
-              "jf-portfolio-app/src/styles.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -84,17 +83,18 @@
               "zone.js",
               "zone.js/testing"
             ],
-            "tsConfig": "jf-portfolio-app/tsconfig.spec.json",
+            "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "jf-portfolio-app/public"
+                "input": "public",
+                "output": "/"
               }
             ],
             "styles": [
               "@angular/material/prebuilt-themes/magenta-violet.css",
-              "jf-portfolio-app/src/styles.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           }
